@@ -14,7 +14,7 @@ def get_rref(A, pivots=False):
 def make_augment(A, b):
     return A.row_join(b)
 
-def mult_mats(A, b):
+def mat_mult(A, b):
     return A * b
 
 # Algorithms useful for quick reference
@@ -32,6 +32,21 @@ def get_x_hat(A, b):
 
     # Solve for x_hat from new system of equations
     return get_rref(x)
+
+def get_bv(A, b):
+
+    x_hat = get_x_hat(A, b)
+
+    # Get the number of columns
+    n = shape(x_hat)[1]
+    # A is transposed, so get cols dim as rows and rows dim as cols
+    m_aug = shape(A)[1]
+    n_aug = shape(b)[0]
+
+    # Get the augment b from x_hat
+    b_aug = x_hat[:, (shape(x_hat)[1] - n_aug):]
+
+    return mat_mult(A, b_aug)
 
 def get_pv(A):
     

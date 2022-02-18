@@ -65,11 +65,24 @@ class Mat_Reader():
 
                 print(",")
 
+        elif self.input_pref == "literal":
+
+            mat_str = input("input space-seperated matrix: ")
+            entries = mat_str.split(" ")
+            entries_list = list(map(int, entries))
+
+            for r in range(self.m):
+                row = []
+                for c in range(self.n):
+                    row.append(entries_list[r * self.n + c])
+
+                self.A_list.append(row)
+
         self.A = Matrix(self.A_list)
         pprint(self.A)
 
     def get_A(self):
         return self.A
 
-A = Mat_Reader(input_pref="cols")
+A = Mat_Reader(input_pref="literal")
 A.input_mat()
