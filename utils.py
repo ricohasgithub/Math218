@@ -14,7 +14,14 @@ def get_rref(A, pivots=False):
 def make_augment(A, b):
     return A.row_join(b)
 
+def mult_mats(A, b):
+    return A * b
+
 # Algorithms useful for quick reference
+def col_LC(A, x):
+    # Get Ax = b
+    return 0
+
 def get_x_hat(A, b):
 
     # Returns x_hat such that bV (orthogonal decomp of b onto V) = A * x_hat
