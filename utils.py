@@ -29,3 +29,16 @@ def get_x_hat(A, b):
 
     # Solve for x_hat from new system of equations
     return get_rref(x)
+
+def get_pv(A):
+    
+    # Returns projection matrix Pv for a given matrix A
+    # Formula: Pv = A * (A_t * A)^-1 * A_t
+
+    AT = get_transpose(A)
+    ATA = AT * A
+
+    ATA_1 = get_inverse(ATA)        
+    Pv = A * ATA_1 * AT
+
+    return Pv
