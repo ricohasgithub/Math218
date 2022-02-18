@@ -68,5 +68,8 @@ class Mat_Reader():
         self.A = Matrix(self.A_list)
         pprint(self.A)
 
+    def get_A(self):
+        return self.A
+
 A = Mat_Reader(input_pref="cols")
 A.input_mat()
