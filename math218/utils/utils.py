@@ -6,7 +6,7 @@ def get_inverse(A):
     return Inverse(A)
 
 def get_transpose(A):
-    return A.tranpose()
+    return A.transpose()
 
 def get_rref(A, pivots=False):
     return A.rref(pivots=pivots)
@@ -60,3 +60,9 @@ def get_pv(A):
     Pv = A * ATA_1 * AT
 
     return Pv
+
+def get_AtA(A):
+    return A.transpose() * A
+
+def get_Atb(A, b):
+    return A.transpose() * b

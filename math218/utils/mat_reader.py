@@ -1,5 +1,6 @@
 
 from sympy import *
+from utils import *
 
 # Matrix reader class for easy inputting and computation
 class Mat_Reader():
@@ -86,3 +87,13 @@ class Mat_Reader():
 
 A = Mat_Reader(input_pref="literal")
 A.input_mat()
+
+B = Mat_Reader(input_pref="literal")
+B.input_mat()
+
+pprint(get_AtA(A.A))
+pprint(get_Atb(A.A, B.A))
+
+x_hat = get_x_hat(A.A, B.A)
+pprint(x_hat)
+pprint(A.A * x_hat)
